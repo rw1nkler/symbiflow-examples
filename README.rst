@@ -156,7 +156,7 @@ To build the litex example, run the following commands:
 .. code:: bash
         :name: xc7-litex
 
-        wget https://raw.githubusercontent.com/enjoy-digital/litex/master/litex_setup.py
+        wget https://raw.githubusercontent.com/enjoy-digital/litex/004924a3190f5d6b58a213f499e7f8460f9f42c6/litex_setup.py
         chmod +x litex_setup.py
         ./litex_setup.py init
         ./litex_setup.py install
