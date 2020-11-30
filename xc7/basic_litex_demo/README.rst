@@ -14,40 +14,59 @@ set up the conda environment and installed the SymbiFlow toolchain.
 Additionally, you need to install a few python packages related
 to LiteX SoC Builder:
 
-.. code-block:: bash
+.. xc7_litex_req_begin_label
+
+.. code-block::
+   :name: xc7-litex-req
 
    pip3 install -r requirements.txt
 
-Then, you need to download a riscv toolchain to compile binaries.
-Additionally, add the toolchain to PATH:
+.. xc7_litex_req_end_label
 
-.. code-block:: bash
+Then, you need to download a riscv toolchain to compile binaries.
+Additionally, add the toolchain to the system PATH:
+
+.. xc7_litex_toolchain_begin_label
+
+.. code-block::
+   :name: xc7-litex-toolchain
 
    wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.1.0-2019.01.0-x86_64-linux-ubuntu14.tar.gz
    tar -xf riscv64-unknown-elf-gcc-8.1.0-2019.01.0-x86_64-linux-ubuntu14.tar.gz
    export PATH=$PATH:$PWD/riscv64-unknown-elf-gcc-8.1.0-2019.01.0-x86_64-linux-ubuntu14/bin/
+
+.. xc7_litex_toolchain_end_label
 
 Generating Bitstream
 --------------------
 
 To create a bitstream for an Arty 35T board, use:
 
-.. code-block:: bash
+.. xc7_litex_build_arty35_begin_label
 
-   make
+.. code-block:: bash
+   :name: xc7-litex-build-arty35
+
+   TARGET=arty_35 make
+
+.. xc7_litex_build_arty35_end_label
 
 To create a bitstream for an Arty 100T board, use:
 
+.. xc7_litex_build_arty100_begin_label
+
 .. code-block:: bash
+   :name: xc7-litex-build-arty100
 
    TARGET=arty_100 make
 
+.. xc7_litex_build_arty100_end_label
 
 Expected output
 ---------------
 
 After loading the bitstream to the Arty board and connecting to the board's
-UART using 115200 baudrate, you should observe the following output:
+UART using ``115200`` baudrate, you should observe the following output:
 
 .. code-block::
 

@@ -121,3 +121,22 @@ Example design for the EOS S3 devices:
    :start-after:.. build_examples_include_begin_label
    :end-before:.. build_examples_include_end_label
 
+
+TEST
+#################################
+
+.. include:: xc7/basic_litex_demo/README.rst
+   :start-after:.. xc7_litex_req_begin_label
+   :end-before:.. xc7_litex_req_end_label
+
+.. include:: xc7/basic_litex_demo/README.rst
+   :start-after:.. xc7_litex_toolchain_begin_label
+   :end-before:.. xc7_litex_toolchain_end_label
+
+.. include:: xc7/basic_litex_demo/README.rst
+   :start-after:.. xc7_litex_build_arty35_begin_label
+   :end-before:.. xc7_litex_build_arty35_end_label
+
+.. include:: xc7/basic_litex_demo/README.rst
+   :start-after:.. xc7_litex_build_arty100_begin_label
+   :end-before:.. xc7_litex_build_arty100_end_label

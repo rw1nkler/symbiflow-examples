@@ -201,3 +201,28 @@ To build the example, run the following command:
 
         pushd eos-s3/btn_counter && make && popd
 
+TEST
+#################################
+
+.. code-block::
+   :name: xc7-litex-req
+
+   pip3 install -r requirements.txt
+
+.. code-block::
+   :name: xc7-litex-toolchain
+
+   wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.1.0-2019.01.0-x86_64-linux-ubuntu14.tar.gz
+   tar -xf riscv64-unknown-elf-gcc-8.1.0-2019.01.0-x86_64-linux-ubuntu14.tar.gz
+   export PATH=$PATH:$PWD/riscv64-unknown-elf-gcc-8.1.0-2019.01.0-x86_64-linux-ubuntu14/bin/
+
+.. code-block:: bash
+   :name: xc7-litex-build-arty35
+
+   TARGET=arty_35 make
+
+.. code-block:: bash
+   :name: xc7-litex-build-arty100
+
+   TARGET=arty_100 make
+
