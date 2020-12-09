@@ -1,42 +1,57 @@
 #!/bin/bash
+
 set -e
 
-fpga_fam=$1
-shift
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+source ${CURRENT_DIR}/common.sh
 
-# select particular example for xc7
+# -- validate input ----------------------------------------------------------
+
+if [[ ! $# -ge 2 ]]; then
+  echo "Invalid number of arguments!"
+  exit 1
+fi
+
+fpga_family=$1
+shift
 examples="$@"
-if [ "$fpga_fam" == "xc7" -a -z "$examples" ] ; then
-    examples="counter picosoc linux_litex"
-fi;
+
+assert_value_in_array ${fpga_family} "${VALID_FPGA_FAMILIES[@]}"
+for example in $examples; do
+  echo "example: ${example}"
+  echo "valid_examples: ${VALID_EXAMPLES[@]}"
+  assert_value_in_array ${example} "${VALID_EXAMPLES[@]}"
+done
+
+# -- tuttest -----------------------------------------------------------------
 
 # activate conda and enter example dir
-eval $(tuttest docs/building-examples.rst export-install-dir 2>&1)
-eval $(tuttest docs/building-examples.rst fpga-fam-$fpga_fam 2>&1)
-eval $(tuttest docs/building-examples.rst conda-prep-env 2>&1)
-eval $(tuttest docs/building-examples.rst conda-act-env 2>&1)
-eval $(tuttest docs/building-examples.rst enter-dir-$fpga_fam 2>&1)
+tuttest_exec docs/building-examples.rst export-install-dir
+tuttest_exec docs/building-examples.rst fpga-fam-$fpga_family
+tuttest_exec docs/building-examples.rst conda-prep-env
+tuttest_exec docs/building-examples.rst conda-act-env
+tuttest_exec docs/building-examples.rst enter-dir-$fpga_family
 
-if [ "$fpga_fam" = "xc7" ]; then
+if [ "$fpga_family" = "xc7" ]; then
     # Xilinx 7-Series examples
     for example in $examples; do
         case $example in
             "counter")
-                eval $(tuttest counter_test/README.rst example-counter-a35t-group 2>&1)
-                eval $(tuttest counter_test/README.rst example-counter-a100t-group 2>&1)
-                eval $(tuttest counter_test/README.rst example-counter-basys3-group 2>&1)
+                tuttest xc7/counter_test/README.rst example-counter-a35t-group
+                tuttest xc7/counter_test/README.rst example-counter-a100t-group
+                tuttest xc7/counter_test/README.rst example-counter-basys3-group
                 ;;
             "picosoc")
-                eval $(tuttest picosoc_demo/README.rst example-picosoc-basys3-group 2>&1)
+                tuttest xc7/picosoc_demo/README.rst example-picosoc-basys3-group
                 ;;
             "linux_litex")
-                eval $(tuttest linux_litex_demo/README.rst example-litex-deps 2>&1)
-                eval $(tuttest linux_litex_demo/README.rst example-litex-a35t-group 2>&1)
-                eval $(tuttest linux_litex_demo/README.rst example-litex-a100t-group 2>&1)
+                tuttest xc7/linux_litex_demo/README.rst example-litex-deps
+                tuttest xc7/linux_litex_demo/README.rst example-litex-a35t-group
+                tuttest xc7/linux_litex_demo/README.rst example-litex-a100t-group
                 ;;
         esac
     done
 else
     # QuickLogic EOS-S3 examples
-    eval $(tuttest btn_counter/README.rst eos-s3-counter 2>&1)
+    tuttest eos-s3/btn_counter/README.rst eos-s3-counter
 fi;
