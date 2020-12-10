@@ -25,7 +25,7 @@ To be able to follow through this tutorial, install the following software:
          :name: install-reqs-centos
 
          yum update -y
-         yum install -y git wget xz
+         yum install -y git wget which xz
 
 
 Next, clone the SymbiFlow examples repository and enter it:

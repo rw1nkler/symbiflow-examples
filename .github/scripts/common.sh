@@ -11,7 +11,7 @@ cat << EOF
   echo "CMD : tuttest $@                                                     "
   echo "OUTPUT:                                                              "
   echo ""
-  echo "$(tuttest $@)"
+  echo '$(tuttest $@)'
   echo "-------------------------------------------------------------------- "
   echo ""
 EOF
