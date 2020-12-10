@@ -5,6 +5,7 @@ VALID_EXAMPLES=("counter" "picosoc" "linux_litex")
 VALID_OSES=("ubuntu" "centos")
 
 function tuttest_exec() {
+cat << EOF
   echo ""
   echo "==================================================================== "
   echo "CMD : tuttest $@                                                     "
@@ -13,7 +14,7 @@ function tuttest_exec() {
   echo "$(tuttest $@)"
   echo "-------------------------------------------------------------------- "
   echo ""
-
+EOF
   tuttest "$@"
 }
 

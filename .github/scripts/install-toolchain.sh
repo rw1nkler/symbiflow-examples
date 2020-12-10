@@ -20,9 +20,9 @@ assert_value_in_array ${os} "${VALID_OSES[@]}"
 
 # -- tuttest ------------------------------------------------------------------
 
-tuttest docs/getting-symbiflow.rst install-reqs-$os
-tuttest docs/getting-symbiflow.rst wget-conda
-tuttest docs/getting-symbiflow.rst conda-install-dir
-tuttest docs/getting-symbiflow.rst fpga-fam-$fpga_family
-tuttest docs/getting-symbiflow.rst conda-setup
-tuttest docs/getting-symbiflow.rst download-arch-def-$fpga_family
+tuttest_exec docs/getting-symbiflow.rst install-reqs-$os
+tuttest_exec docs/getting-symbiflow.rst wget-conda
+tuttest_exec docs/getting-symbiflow.rst conda-install-dir
+tuttest_exec docs/getting-symbiflow.rst fpga-fam-$fpga_family
+tuttest_exec docs/getting-symbiflow.rst conda-setup
+tuttest_exec docs/getting-symbiflow.rst download-arch-def-$fpga_family
