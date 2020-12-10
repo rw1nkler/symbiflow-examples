@@ -39,7 +39,7 @@ jobs:
     env:
       LANG: "en_US.UTF-8"
       DOCKER_NAME: test
-      IN_DOCKER_EXEC: "docker exec -t test bash -ex -c"
+      IN_DOCKER_EXEC: "docker exec -t test bash -e -c"
 
     steps:
       - name: Setup repository
