@@ -17,6 +17,8 @@ To be able to follow through this tutorial, install the following software:
          :name: install-reqs-ubuntu
 
          apt update -y
+         apt upgrade -y
+
          apt install -y git wget
 
    .. group-tab:: CentOS
@@ -25,6 +27,8 @@ To be able to follow through this tutorial, install the following software:
          :name: install-reqs-centos
 
          yum update -y
+         yum upgrade -y
+
          yum install -y git wget which
 
 
