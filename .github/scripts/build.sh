@@ -26,11 +26,11 @@ done
 # -- tuttest -----------------------------------------------------------------
 
 # activate conda and enter example dir
-tuttest_exec docs/building-examples.rst export-install-dir
-tuttest_exec docs/building-examples.rst fpga-fam-$fpga_family
-tuttest_exec docs/building-examples.rst conda-prep-env
-tuttest_exec docs/building-examples.rst conda-act-env
-tuttest_exec docs/building-examples.rst enter-dir-$fpga_family
+tuttest docs/building-examples.rst export-install-dir
+tuttest docs/building-examples.rst fpga-fam-$fpga_family
+tuttest docs/building-examples.rst conda-prep-env
+tuttest docs/building-examples.rst conda-act-env
+tuttest docs/building-examples.rst enter-dir-$fpga_family
 
 if [ "$fpga_family" = "xc7" ]; then
     # Xilinx 7-Series examples
