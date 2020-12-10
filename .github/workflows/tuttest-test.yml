@@ -19,7 +19,7 @@ jobs:
 
       - name: Setup Docker
         run: |
-            docker create --name $DOCKER_NAME -v $PWD:$PWD --workdir $PWD --tty ${{matrix.os}}:${{matrix.os-version}}
+            docker create --name $DOCKER_NAME -v $PWD:$PWD --workdir $PWD --tty ubuntu:bionic
             docker start $DOCKER_NAME
 
       - name: Install tuttest
