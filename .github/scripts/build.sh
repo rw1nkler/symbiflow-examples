@@ -18,8 +18,6 @@ examples="$@"
 
 assert_value_in_array ${fpga_family} "${VALID_FPGA_FAMILIES[@]}"
 for example in $examples; do
-  echo "example: ${example}"
-  echo "valid_examples: ${VALID_EXAMPLES[@]}"
   assert_value_in_array ${example} "${VALID_EXAMPLES[@]}"
 done
 
