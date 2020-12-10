@@ -119,7 +119,7 @@ Download architecture definitions:
       .. code-block:: bash
          :name: download-arch-def-eos-s3
 
-         wget -qO- https://quicklogic-my.sharepoint.com/:u:/p/kkumar/EWuqtXJmalROpI2L5XeewMIBRYVCY8H4yc10nlli-Xq79g?download=1 | tar -xJ -C $INSTALL_DIR/eos-s3/
+         wget -qO- https://quicklogic-my.sharepoint.com/:u:/p/kkumar/EWuqtXJmalROpI2L5XeewMIBRYVCY8H4yc10nlli-Xq79g?download=1 | tar -xJC $INSTALL_DIR/eos-s3/
 
 If the above commands exited without errors, you have successfuly installed and configured your working enviroment.
 
