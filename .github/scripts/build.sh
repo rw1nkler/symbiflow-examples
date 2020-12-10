@@ -26,28 +26,28 @@ done
 # -- tuttest -----------------------------------------------------------------
 
 # activate conda and enter example dir
-tuttest docs/building-examples.rst export-install-dir
-tuttest docs/building-examples.rst fpga-fam-$fpga_family
-tuttest docs/building-examples.rst conda-prep-env
-tuttest docs/building-examples.rst conda-act-env
-tuttest docs/building-examples.rst enter-dir-$fpga_family
+tuttest_exec docs/building-examples.rst export-install-dir
+tuttest_exec docs/building-examples.rst fpga-fam-$fpga_family
+tuttest_exec docs/building-examples.rst conda-prep-env
+tuttest_exec docs/building-examples.rst conda-act-env
+tuttest_exec docs/building-examples.rst enter-dir-$fpga_family
 
 if [ "$fpga_family" = "xc7" ]; then
     # Xilinx 7-Series examples
     for example in $examples; do
         case $example in
             "counter")
-                tuttest xc7/counter_test/README.rst example-counter-a35t-group
-                tuttest xc7/counter_test/README.rst example-counter-a100t-group
-                tuttest xc7/counter_test/README.rst example-counter-basys3-group
+                tuttest_exec xc7/counter_test/README.rst example-counter-a35t-group
+                tuttest_exec xc7/counter_test/README.rst example-counter-a100t-group
+                tuttest_exec xc7/counter_test/README.rst example-counter-basys3-group
                 ;;
             "picosoc")
-                tuttest xc7/picosoc_demo/README.rst example-picosoc-basys3-group
+                tuttest_exec xc7/picosoc_demo/README.rst example-picosoc-basys3-group
                 ;;
             "linux_litex")
-                tuttest xc7/linux_litex_demo/README.rst example-litex-deps
-                tuttest xc7/linux_litex_demo/README.rst example-litex-a35t-group
-                tuttest xc7/linux_litex_demo/README.rst example-litex-a100t-group
+                tuttest_exec xc7/linux_litex_demo/README.rst example-litex-deps
+                tuttest_exec xc7/linux_litex_demo/README.rst example-litex-a35t-group
+                tuttest_exec xc7/linux_litex_demo/README.rst example-litex-a100t-group
                 ;;
         esac
     done
