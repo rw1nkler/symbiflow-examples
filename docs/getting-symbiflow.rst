@@ -17,7 +17,7 @@ To be able to follow through this tutorial, install the following software:
          :name: install-reqs-ubuntu
 
          apt update -y
-         apt install -y git wget xz-utils
+         apt install -y git wget
 
    .. group-tab:: CentOS
 
@@ -25,7 +25,7 @@ To be able to follow through this tutorial, install the following software:
          :name: install-reqs-centos
 
          yum update -y
-         yum install -y git wget which xz
+         yum install -y git wget which
 
 
 Next, clone the SymbiFlow examples repository and enter it:
